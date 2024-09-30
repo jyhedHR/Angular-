@@ -1,0 +1,13 @@
+<div class="container">
+    <div class="row">
+     Search : <input class="from-control" style="margin-bottom: 30px;" name="title" [(ngModel)]="title" >
+
+      <div *ngFor="let c of categoorie | filter:title" class="col-md-4" style="margin-bottom: 20px;" >
+        <!-- <div *ngIf="title == c.title || title== ''">-->
+        <img [src]="c.image" [alt]="c.title" class="img-fluid h-50 w-75" alt="" (click)="afficherDescription(c.id)">
+        <h3>{{c.title | uppercase}}</h3>
+        <button class="btn btn-primary" *ngIf="c.available">Voir produits</button>
+        <p *ngIf="c.available== false">Categorie non Disponible</p>
+      
+      </div>
+  </div>

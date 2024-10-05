@@ -11,6 +11,8 @@ import { FooterComponent } from './componts/footer/footer.component';
 import { HeaderComponent } from './componts/header/header.component';
 import { ListCategorieComponent } from './componts/list-categorie/list-categorie.component';
 import { FilterPipe } from './pipe/filter.pipe';
+import { NotfoundComponent } from './componts/notfound/notfound.component';
+import { ProduitModule } from './features/produit/produit.module';
 
 @NgModule({
   declarations: [
@@ -21,12 +23,15 @@ import { FilterPipe } from './pipe/filter.pipe';
     FooterComponent,
     HeaderComponent,
     ListCategorieComponent,
-    FilterPipe
+    FilterPipe,
+    NotfoundComponent
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ProduitModule
   ],
   providers: [],
   bootstrap: [AppComponent]

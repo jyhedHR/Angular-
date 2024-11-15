@@ -1,0 +1,14 @@
+.clignote{
+    color : red;
+    animation: clignote .8s infinite;
+}
+
+
+@keyframes clignote {
+    form{
+        opacity: 1;
+    }
+    to{
+        opacity: 0;
+    }
+}

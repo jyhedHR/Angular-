@@ -13,6 +13,13 @@ import { ListCategorieComponent } from './componts/list-categorie/list-categorie
 import { FilterPipe } from './pipe/filter.pipe';
 import { NotfoundComponent } from './componts/notfound/notfound.component';
 import { ProduitModule } from './features/produit/produit.module';
+import { FilterproduitPipe } from './pipe/filterproduit.pipe';
+import { FormCategoryComponent } from './componts/form-category/form-category.component';
+import { FormUserComponent } from './componts/form-user/form-user.component';
+import { TestComponent } from './componts/test/test.component';
+import { CategoryComponent } from './componts/category/category.component';
+import { SingleProductComponent } from './componts/single-product/single-product.component';
+
 
 @NgModule({
   declarations: [
@@ -24,14 +31,20 @@ import { ProduitModule } from './features/produit/produit.module';
     HeaderComponent,
     ListCategorieComponent,
     FilterPipe,
-    NotfoundComponent
-    
+    NotfoundComponent,
+    FormCategoryComponent,
+    TestComponent,
+    CategoryComponent,
+ 
+
+
+
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule,
-    ProduitModule
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

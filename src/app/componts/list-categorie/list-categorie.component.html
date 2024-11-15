@@ -1,13 +1,16 @@
 <div class="container">
     <div class="row">
      Search : <input class="from-control" style="margin-bottom: 30px;" name="title" [(ngModel)]="title" >
-
+     <button (click)="changeTest()">changeTest</button>
       <div *ngFor="let c of categoorie | filter:title" class="col-md-4" style="margin-bottom: 20px;" >
-        <!-- <div *ngIf="title == c.title || title== ''">-->
-        <img [src]="c.image" [alt]="c.title" class="img-fluid h-50 w-75" alt="" (click)="afficherDescription(c.id)">
-        <h3>{{c.title | uppercase}}</h3>
-        <button class="btn btn-primary" *ngIf="c.available" [routerLink]="['/products/',c.id]">Voir produits</button>
-        <p *ngIf="c.available== false">Categorie non Disponible</p>
-      
+        <div class="col-md-4">
+          <!-- <div *ngIf="title.toLowerCase() == c.title.toLowerCase() || title == ''" class="col-md-4" style="margin-bottom: 20px;"> -->
+              <app-category [t]="test" [data]="c" (d)="DeleteCategory($event)"></app-category>
+              </div>
+
       </div>
   </div>
+  <div class="row">
+    <app-test></app-test>
+  </div>
+</div>

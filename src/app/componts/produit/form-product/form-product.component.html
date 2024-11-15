@@ -1,0 +1,57 @@
+<form [formGroup]="product">
+
+    <div class="mb-3">
+        <label for="name">Name:</label>
+        <input id="name" type="text" class="form-control" formControlName="name">
+        <div *ngIf="name.invalid && (name.touched || name.dirty)">name is required</div>
+    </div>
+
+    <div class="mb-3">
+        <label for="image">Image:</label>
+        <input id="image" type="text" class="form-control" formControlName="image">
+    </div>
+
+    <div class="mb-3">
+        <label for="description">Description:</label>
+        <input id="description" type="text" class="form-control" formControlName="description">
+    </div>
+
+    <div class="mb-3">
+        <label for="price">Price:</label>
+        <input id="price" type="number" class="form-control" formControlName="price">
+    </div>
+
+  
+    <div formGroupName="brand">
+        <label for="brand_name">brand Name:</label>
+        <input id="brand_name" type="text" class="form-control" formControlName="name">
+        <label for="brand_logo">brand logo:</label>
+        <input id="brand_logo" type="text" class="form-control" formControlName="logo">
+    </div>
+
+    <div class="mb-3">
+        <label for="promotion">Promotion:</label>
+        <input id="promotion" type="text" class="form-control" formControlName="promotion">
+    </div>
+
+    <div class="mb-3">
+        <label for="quantity">Quantity:</label>
+        <input id="quantity" type="number" class="form-control" formControlName="quantity">
+    </div>
+    <div class="mb-3">
+        <label for="nb_like">nb_like:</label>
+        <input id="nb_like" type="number" class="form-control" formControlName="nb_like">
+    </div>
+    <div class="mb-3" formArrayName="tags">
+        <div *ngFor="let t of tags">
+            <label for="tags">tags:</label>
+            <input id="tags" type="text" class="form-control" [formControl]="t" >
+            
+        </div>
+        <button type="button" (click)="addtags()">+</button>
+    </div>
+    <div class="mb-3">
+        <button type="submit" class="btn btn-primary" (click)="add()">Add Product</button>
+    </div>
+
+</form>

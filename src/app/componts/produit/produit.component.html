@@ -1,10 +1,21 @@
 
 <div class="container">
     <div class="row">
-      <div class="col-md-4" style="margin-bottom: 20px;" *ngFor="let product of list">
-        <img [src]="product.image" [alt]="product.name" class="img-fluid h-50 w-75" alt="">
-        <h3>{{product.name}}</h3>
-        <h3>{{product.price}}</h3>
+      <div>
+        <label >Search</label>
+      <input type="text" class="from-control" name="filter" [(ngModel)]="search">
+
+    </div>
+      <div class="alert alert-danger" *ngIf="list.length == 0">
+            <h2>Aucun produits</h2>
+      </div>
+      <button (click)="changeTest()">changeTest</button>
+      <div class="col-md-4" style="margin-bottom: 20px;" *ngFor="let product of list | filterproduit:search">
+       <app-single-product [t_p]="test" [data_p]="product" (d_p)="DeleteProduit($event)"></app-single-product>
+    <ng-template #elseblock>
+
+      <button   class="btn btn-outline-secondery" type="button" (click)="buy(product)" > Buy</button>
+    </ng-template>
       </div>
       </div>
      </div>

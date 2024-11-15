@@ -1,0 +1,9 @@
+<div  style="margin-bottom: 20px;">
+<img [src]="data_p.image" [alt]="data_p.name" class="img-fluid h-50 w-75" alt="">
+<h3 [ngClass]="data_p.nb_likes >= 10 ? 'clignote' : ''">{{data_p.name}}</h3>
+<h3>{{data_p.price}}</h3>
+<h3>{{data_p.nb_likes}}</h3>
+<h3>{{data_p.quantity}}</h3>
+
+<button (click)="deleteChild()">Delete</button>
+</div>

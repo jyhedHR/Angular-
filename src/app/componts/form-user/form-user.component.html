@@ -1,0 +1,57 @@
+<h2>ADD User</h2>
+<div class="container">
+    <div class="row">
+    <form #f="ngForm">
+    
+        <div class="mb-3">
+            <label for="">Ferstname</label>
+            <input  type="text" class="from-control" name="Ferstname" [(ngModel)]="User.Ferstname" required minlength="3" #FerstName="ngModel" pattern="[a-zA-Z]*">
+            Invalid : {{FerstName.invalid}}<br>
+    
+            Touched : {{FerstName.touched}}<br>
+            Dirty : {{FerstName.dirty}}<br>
+            Errors:{{FerstName.errors|json}}
+            <div *ngIf="FerstName.invalid && (FerstName.touched||FerstName.dirty)" class="alert alert-danger">
+                <div *ngIf="FerstName.errors!['required']">FerstName is required</div>
+                <div *ngIf="FerstName.errors!['minlength']">FerstName must have at least 3 caracters</div>
+                <div *ngIf="FerstName.errors!['pattern']">FerstName must have only characters</div>
+            </div>
+    
+    
+        </div>
+        <div class="mb-3">
+            <label for="">lastname</label>
+            <input type="text" class="from-control" name="Lastname" [(ngModel)]="User.Lastname" required minlength="10" #Lastname="ngModel">
+            <div *ngIf="Lastname.invalid && (Lastname.touched||Lastname.dirty)" class="alert alert-danger">
+                <div *ngIf="Lastname.errors!['required']">Lastname is required</div>
+                <div *ngIf="Lastname.errors!['minlength']">Lastname must have at least 10 caracters</div>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="">email</label>
+            <input type="text" class="from-control" name="Email" [(ngModel)]="User.Email" required minlength="10" #Email="ngModel">
+            <div *ngIf="Email.invalid && (Email.touched||Email.dirty)" class="alert alert-danger">
+                <div *ngIf="Email.errors!['required']">Email is required</div>
+                <div *ngIf="Email.errors!['minlength']">Email must have at least 10 caracters</div>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="">Password</label>
+            <input type="text" class="from-control" name="Password"  [(ngModel)]="User.mdp" required minlength="10" #Password="ngModel">
+            <div *ngIf="Password.invalid && (Password.touched||Password.dirty)" class="alert alert-danger">
+                <div *ngIf="Password.errors!['required']">Password is required</div>
+                <div *ngIf="Password.errors!['minlength']">Password must have at least 10 caracters</div>
+            </div>
+        </div>
+        
+        <div class="mb-3">
+           
+            <input type="submit" class="btn btn-primary" (click)="add()" [disabled]="f.invalid">
+        </div>
+    </form>
+    </div>
+    
+    
+    
+    
+    </div>

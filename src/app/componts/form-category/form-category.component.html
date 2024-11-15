@@ -1,0 +1,50 @@
+<div class="container">
+<div class="row">
+<form #f="ngForm">
+
+    <div class="mb-3">
+        <label for="">title</label>
+        <input  type="text" class="from-control" name="title" [(ngModel)]="category.title" required minlength="3" #title="ngModel">
+        Invalid : {{title.invalid}}<br>
+
+        Touched : {{title.touched}}<br>
+        Dirty : {{title.dirty}}<br>
+        Errors:{{title.errors|json}}
+        <div *ngIf="title.invalid && (title.touched||title.dirty)" class="alert alert-danger">
+            <div *ngIf="title.errors!['required']">title is required</div>
+            <div *ngIf="title.errors!['minlength']">title must have at least 3 caracters</div>
+        </div>
+
+
+    </div>
+    <div class="mb-3">
+        <label for="">image</label>
+        <input type="text" class="formControl" name="image" [(ngModel)]="category.image" required  #image="ngModel">
+
+        <div *ngIf="image.invalid && (image.touched||image.dirty)" class="alert alert-danger">
+            <div *ngIf="image.errors!['required']">image is required</div>
+        </div>
+    </div>
+    <div class="mb-3">
+        <label for="">Description</label>
+        <input type="text" class="from-control" name="Description" [(ngModel)]="category.description" required minlength="10" #Description="ngModel">
+        <div *ngIf="Description.invalid && (Description.touched||Description.dirty)" class="alert alert-danger">
+            <div *ngIf="Description.errors!['required']">Description is required</div>
+            <div *ngIf="Description.errors!['minlength']">Description must have at least 10 caracters</div>
+        </div>
+    </div>
+    <div class="mb-3">
+        <label for=""  >Avaleble</label >
+        <input type="checkbox" name="Avaleble" [(ngModel)]="category.available  "  >
+    </div>
+    <div class="mb-3">
+       
+        <input type="submit" class="btn btn-primary" (click)="add()" [disabled]="f.invalid">
+    </div>
+</form>
+</div>
+
+
+
+
+</div>
